@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:8000"  # Expón las métricas para Prometheus
+    environment:
+      - BROKER_ADDRESS=mosquitto
+      - BROKER_PORT=1883
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0.15
+    ports:
+      - "1883:1883"
+      - "9001:9001"  # Puerto para métricas del broker
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"

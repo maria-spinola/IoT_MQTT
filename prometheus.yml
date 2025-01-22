@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 1s
+
+scrape_configs:
+  - job_name: 'app_metrics'
+    static_configs:
+      - targets: ['app:8000']  # La aplicación expondrá métricas en este puerto
+  - job_name: 'mosquitto_metrics'
+    static_configs:
+      - targets: ['mosquitto:9001']  # Mosquitto expone métricas en este puerto
