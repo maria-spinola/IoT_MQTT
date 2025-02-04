@@ -1,2 +1,2 @@
-El objetivo de este programa es implementar una solución que permita procesar datos provenientes de sensores y dispositivos IoT en tiempo real, aplicando filtros y transformaciones específicas según las necesidades de cada aplicación. 
-Se utiliza como protocolo de comunicación MQTT y los datos se almacenan en una base de datos SQLite.
+The objective of this program is to implement a solution that enables real-time processing of data from sensors and IoT devices, applying specific filters and transformations according to the needs of each application.  
+MQTT is used as the communication protocol, and the data is stored in an SQLite database.
